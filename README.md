@@ -92,6 +92,7 @@ User → React Frontend → Django REST API → RAG AI Engine → Knowledge Base
 
 ## Project Structure
 
+```
 Smart-Service-Desk
 │
 ├── backend
@@ -127,6 +128,8 @@ Smart-Service-Desk
 │ └── screenshots
 │
 └── README.mdEADME.md
+
+```
 
 ````
 
