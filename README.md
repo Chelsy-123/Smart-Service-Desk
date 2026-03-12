@@ -90,35 +90,45 @@ User → React Frontend → Django REST API → RAG AI Engine → Knowledge Base
 
 ---
 
-# Project Structure
+## Project Structure
 
-```
 Smart-Service-Desk
 │
 ├── backend
-│   ├── api
-│   ├── chatbot
-│   ├── tickets
-│   ├── notifications
-│   └── manage.py
+│ ├── auth_api # Authentication APIs
+│ ├── chatbot # Chatbot logic
+│ ├── common # Shared backend utilities
+│ ├── config # Django project settings
+│ ├── kb # Knowledge base management
+│ ├── notifications # Email and background notifications
+│ ├── rag # Retrieval-Augmented Generation logic
+│ ├── tickets # Ticket management system
+│ ├── users # User management
+│ └── manage.py
 │
 ├── service-desk-frontend
-│   ├── src
-│   │   ├── api
-│   │   ├── components
-│   │   ├── context
-│   │   ├── hooks
-│   │   ├── pages
-│   │   └── utils
-│   │
-│   ├── package.json
-│   └── vite.config.js
+│ ├── public
+│ ├── src
+│ │ ├── api # API request handlers
+│ │ ├── components
+│ │ │ ├── chatbot
+│ │ │ ├── common
+│ │ │ ├── dashboard
+│ │ │ ├── faq
+│ │ │ └── tickets
+│ │ │
+│ │ ├── context # Global state management
+│ │ ├── hooks # Custom React hooks
+│ │ └── pages # Application pages
+│ │
+│ └── package.json
 │
 ├── docs
-│   └── screenshots
+│ └── screenshots
 │
-└── README.md
-```
+└── README.mdEADME.md
+
+````
 
 ---
 
@@ -129,7 +139,7 @@ Smart-Service-Desk
 ```bash
 git clone https://github.com/YOUR_USERNAME/Smart-Service-Desk.git
 cd Smart-Service-Desk
-```
+````
 
 ---
 
