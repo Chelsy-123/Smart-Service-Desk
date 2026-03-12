@@ -1,0 +1,79 @@
+[
+  {
+    "model": "notifications.notificationevent",
+    "pk": 1,
+    "fields": {
+      "code": "TICKET_CREATED",
+      "description": "Triggered when a ticket is created",
+      "is_active": true,
+      "created_at": "2025-01-01T10:00:00Z"
+    }
+  },
+  {
+    "model": "notifications.notificationevent",
+    "pk": 2,
+    "fields": {
+      "code": "TICKET_ASSIGNED",
+      "description": "Triggered when a ticket is assigned to an agent",
+      "is_active": true,
+      "created_at": "2025-01-01T10:01:00Z"
+    }
+  },
+  {
+    "model": "notifications.notificationevent",
+    "pk": 3,
+    "fields": {
+      "code": "TICKET_STATUS_CHANGED",
+      "description": "Triggered when ticket status is changed",
+      "is_active": true,
+      "created_at": "2025-01-01T10:02:00Z"
+    }
+  },
+
+  {
+    "model": "notifications.notificationchannel",
+    "pk": 1,
+    "fields": {
+      "name": "EMAIL",
+      "is_active": true,
+      "created_at": "2025-01-01T10:05:00Z"
+    }
+  },
+
+  {
+    "model": "notifications.notificationtemplate",
+    "pk": 1,
+    "fields": {
+      "event": 1,
+      "channel": 1,
+      "subject_template": "Ticket Created - {{ ticket_id }}",
+      "body_template": "Your ticket '{{ subject }}' has been created successfully.",
+      "is_active": true,
+      "created_at": "2025-01-01T10:10:00Z"
+    }
+  },
+  {
+    "model": "notifications.notificationtemplate",
+    "pk": 2,
+    "fields": {
+      "event": 2,
+      "channel": 1,
+      "subject_template": "Ticket Assigned - {{ ticket_id }}",
+      "body_template": "Your ticket has been assigned to agent {{ agent }}.",
+      "is_active": true,
+      "created_at": "2025-01-01T10:11:00Z"
+    }
+  },
+  {
+    "model": "notifications.notificationtemplate",
+    "pk": 3,
+    "fields": {
+      "event": 3,
+      "channel": 1,
+      "subject_template": "Ticket Status Updated - {{ ticket_id }}",
+      "body_template": "Ticket status changed from {{ old_status }} to {{ new_status }}.",
+      "is_active": true,
+      "created_at": "2025-01-01T10:12:00Z"
+    }
+  }
+]
