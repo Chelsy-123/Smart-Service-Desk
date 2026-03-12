@@ -1,64 +1,87 @@
 # Smart Service Desk – AI Powered Helpdesk
 
-Smart Service Desk is an AI-powered helpdesk platform that integrates a Retrieval-Augmented Generation (RAG) chatbot with a ticketing system.
-It allows users to resolve issues instantly through AI assistance or create support tickets that are handled by support agents.
+Smart Service Desk is an **AI-powered helpdesk platform** that integrates a **Retrieval-Augmented Generation (RAG) chatbot** with a **ticket management system**.
 
-The system provides role-based dashboards for **Users, Agents, and Admins**, enabling efficient issue resolution and support management.
+The platform allows users to **resolve issues instantly through AI assistance** or **create support tickets** that are handled by support agents.
 
----
-
-## Features
-
-* AI-powered chatbot for instant troubleshooting
-* Retrieval-Augmented Generation (RAG) based knowledge retrieval
-* Create and manage support tickets
-* Role-based access control (User / Agent / Admin)
-* Agents can view and manage assigned tickets
-* Admin panel for managing agents and FAQs
-* Knowledge Base document upload for AI retrieval
-* FAQ management system
-* Automatic email notifications for ticket updates
-* Clean dashboard interface with role-based cards
+The system includes **role-based dashboards for Users, Agents, and Admins**, enabling efficient issue resolution, knowledge management, and support automation.
 
 ---
 
-## Tech Stack
+# Features
 
-### Frontend
+### AI Features
 
-* React
-* Vite
-* Bootstrap
-* Axios
-* React Router
+- AI-powered chatbot for instant troubleshooting
+- Retrieval-Augmented Generation (RAG) based knowledge retrieval
+- Knowledge Base document upload for AI responses
 
-### Backend
+### User Features
 
-* Django
-* Django REST Framework
+- User registration and login
+- Create and track support tickets
+- View ticket status and history
+- Access FAQ knowledge base
+- Chat with AI chatbot for quick help
 
-### AI
+### Agent Features
 
-* Retrieval-Augmented Generation (RAG)
+- Agent dashboard for managing assigned tickets
+- View ticket details and respond to users
+- Update ticket status and resolution
 
-### Notifications & Background Tasks
+### Admin Features
 
-* Celery
-* Redis
+- Admin dashboard for system management
+- Create and manage support agents
+- Manage FAQ entries
+- Upload knowledge base documents
+- Monitor system activity
 
-### Containerization
+### Notifications
 
-* Docker
+- Automatic email notifications for ticket updates
 
 ---
 
-## System Architecture
+# Tech Stack
+
+## Frontend
+
+- React
+- Vite
+- Bootstrap
+- Axios
+- React Router
+
+## Backend
+
+- Django
+- Django REST Framework
+
+## AI
+
+- Retrieval-Augmented Generation (RAG)
+- Gemini API integration
+
+## Background Tasks & Messaging
+
+- Celery
+- Redis
+
+## Containerization
+
+- Docker
+
+---
+
+# System Architecture
 
 User → React Frontend → Django REST API → RAG AI Engine → Knowledge Base
 
-Workflow:
+### Workflow
 
-1. User interacts with the chatbot
+1. User interacts with the AI chatbot
 2. The chatbot retrieves relevant information from the knowledge base
 3. If the issue is unresolved, the chatbot suggests creating a support ticket
 4. Tickets are assigned to support agents
@@ -67,60 +90,50 @@ Workflow:
 
 ---
 
-## Project Structure
+# Project Structure
 
+```
 Smart-Service-Desk
 │
 ├── backend
-│   ├── auth_api        # Authentication APIs
-│   ├── chatbot         # Chatbot logic
-│   ├── common          # Shared backend utilities
-│   ├── config          # Django project settings
-│   ├── kb              # Knowledge base management
-│   ├── notifications   # Email and background notifications
-│   ├── rag             # Retrieval-Augmented Generation logic
-│   ├── tickets         # Ticket management system
-│   ├── users           # User management
+│   ├── api
+│   ├── chatbot
+│   ├── tickets
+│   ├── notifications
 │   └── manage.py
 │
 ├── service-desk-frontend
-│   ├── public
 │   ├── src
-│   │   ├── api         # API request handlers
+│   │   ├── api
 │   │   ├── components
-│   │   │   ├── chatbot
-│   │   │   ├── common
-│   │   │   ├── dashboard
-│   │   │   ├── faq
-│   │   │   └── tickets
-│   │   │
-│   │   ├── context     # Global state management
-│   │   ├── hooks       # Custom React hooks
-│   │   └── pages       # Application pages
+│   │   ├── context
+│   │   ├── hooks
+│   │   ├── pages
+│   │   └── utils
 │   │
-│   └── package.json
+│   ├── package.json
+│   └── vite.config.js
 │
 ├── docs
 │   └── screenshots
 │
 └── README.md
-
-README.md
+```
 
 ---
 
-## Installation
+# Installation
 
-### Clone the repository
+## Clone the Repository
 
 ```bash
-git clone https://github.com/Chelsy-123/Smart-Service-Desk.git
+git clone https://github.com/YOUR_USERNAME/Smart-Service-Desk.git
 cd Smart-Service-Desk
 ```
 
 ---
 
-### Backend Setup
+# Backend Setup
 
 ```bash
 cd backend
@@ -143,7 +156,7 @@ http://127.0.0.1:8000
 
 ---
 
-### Frontend Setup
+# Frontend Setup
 
 ```bash
 cd service-desk-frontend
@@ -161,29 +174,121 @@ http://localhost:5173
 
 ---
 
-## Screenshots
+# Start Redis
 
-### Dashboard
+Make sure Redis server is running before starting Celery.
 
-![Dashboard](docs/screenshots/dashboard.png)
+---
 
-### AI Chatbot
+# Start Celery Worker
+
+```
+celery -A backend worker -l info -P solo
+```
+
+---
+
+# Environment Variables
+
+Create a `.env` file in the project root.
+
+Example:
+
+```
+GEMINI_API_KEY=your_api_key
+EMAIL_HOST_USER=your_email
+EMAIL_HOST_PASSWORD=your_app_password
+```
+
+⚠️ Do **not commit `.env` to GitHub**.
+
+---
+
+# Screenshots
+
+## Authentication
+
+### Register Page
+
+![Register](docs/screenshots/register.png)
+
+### Login Page
+
+![Login](docs/screenshots/login.png)
+
+---
+
+## User Interface
+
+### User Dashboard
+
+![User Dashboard](docs/screenshots/user_dashboard.png)
+
+### User Tickets Page
+
+![User Tickets](docs/screenshots/user_tickets.png)
+
+### FAQ Page
+
+![FAQ Page](docs/screenshots/faq_page.png)
+
+### Chatbot
 
 ![Chatbot](docs/screenshots/chatbot.png)
 
-### Ticket Management
+---
 
-![Tickets](docs/screenshots/tickets.png)
+## Agent Dashboard
+
+### Agent Dashboard
+
+![Agent Dashboard](docs/screenshots/agent_dashboard.png)
+
+### Assigned Tickets
+
+![Assigned Tickets](docs/screenshots/agent_assigned_tickets.png)
 
 ---
 
-## Author
+## Admin Dashboard
 
-Chelsy Thomas
-B.Tech Computer Science
+### Admin Dashboard
+
+![Admin Dashboard](docs/screenshots/admin_dashboard.png)
+
+### Manage FAQ
+
+![Manage FAQ](docs/screenshots/manage_faq.png)
+
+### Create Agent
+
+![Create Agent](docs/screenshots/create_agent.png)
+
+### Manage Agent
+
+![Manage Agent](docs/screenshots/manage_agent.png)
+
+### Upload Knowledge Base
+
+![Upload Knowledge Base](docs/screenshots/upload_kb.png)
 
 ---
 
-## License
+# Future Improvements
 
-This project is for educational and portfolio purposes.
+- Multi-language chatbot support
+- Analytics dashboard for ticket insights
+- Cloud deployment with CI/CD pipeline
+
+---
+
+# Author
+
+**Chelsy Thomas**  
+B.Tech Computer Science and Engineering
+
+---
+
+# License
+
+This project is created for **educational and portfolio purposes**.
