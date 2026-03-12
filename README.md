@@ -127,7 +127,7 @@ Smart-Service-Desk
 ├── docs
 │ └── screenshots
 │
-└── README.mdEADME.md
+└── README.md
 
 ```
 
@@ -140,7 +140,7 @@ Smart-Service-Desk
 ## Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Smart-Service-Desk.git
+git clone https://github.com/Chelsy-123/Smart-Service-Desk.git
 cd Smart-Service-Desk
 ````
 
